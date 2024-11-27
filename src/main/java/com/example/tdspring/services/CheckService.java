@@ -54,4 +54,10 @@ public class CheckService {
             throw new DBException("Could not delete check");
         }
     }
+    public Integer getCheckByStockId(Long stockId) throws NotFoundException {
+        // search in every stock if the product id is the same as the one given and count the number of stocks found
+        List<Check> checks = this.checkRepository.findByStockId(stockId);
+        // if no stock is found, answer 0 stock, else count the number of stocks found
+        return checks.size();
+    }
 }

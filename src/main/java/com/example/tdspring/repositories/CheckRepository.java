@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface CheckRepository extends JpaRepository<Check, Long> {
     List<Check> findByUser(User user);
+
+    List<Check> findByStockId (Long id);
 }

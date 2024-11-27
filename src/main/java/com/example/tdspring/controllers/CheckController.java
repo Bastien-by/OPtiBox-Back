@@ -68,4 +68,14 @@ public class CheckController {
         }
     }
 
+    @GetMapping("/getCheckByStockId/{id}")
+    public ResponseEntity<Integer> getCheckByStockId(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(this.stockService.getCheckByStockId(id), HttpStatus.OK);
+        } catch (NotFoundException e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

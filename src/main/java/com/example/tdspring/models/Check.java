@@ -19,11 +19,11 @@ public class Check implements Action {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "stock_id")
+    @JoinColumn(name = "id_stock")
     private Stock stock;
     private Date date;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id_user")
     private User user; // user reference who did the check
     private Integer status; //true: OK, false: NOK
     private String comment;
